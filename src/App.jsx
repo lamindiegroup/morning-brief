@@ -65,7 +65,7 @@ OUTPUT FORMAT — respond ONLY with a valid JSON object, no markdown, no explana
 }
 
 Generate 6 total briefs (rank 1-6). Rank 1 should also be the top_pick with full H.E.I.T. breakdown.
-Search for what is actually trending RIGHT NOW in: AI tools for productivity, AI job displacement news, working dad content, personal finance stress, everyday AI adoption. Make the topics current and specific, not generic.`;
+Search trending AI and working dad topics today. Be specific and current. Return JSON only.`;
 }
 
 const inputStyle = { width: "100%", background: "#0a0a0a", border: "1px solid #1f1f1f", borderRadius: 8, padding: "10px 12px", fontSize: 13, color: "#f0f0f0", fontFamily: "'DM Sans', sans-serif" };
@@ -114,7 +114,7 @@ export default function MorningBrief() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
-          max_tokens: 1000,
+          max_tokens: 800,,
           tools: [{ type: "web_search_20250305", name: "web_search" }],
           system: buildPrompt(settings),
           messages: [{ role: "user", content: `Today is ${new Date().toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}. Search for what's trending right now in AI, working dad content, job displacement, and everyday productivity. Then generate my morning content brief as a JSON object only.` }],
