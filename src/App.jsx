@@ -113,9 +113,8 @@ export default function MorningBrief() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
+          model: "claude-haiku-4-5-20251001",
           max_tokens: 800,,
-          tools: [{ type: "web_search_20250305", name: "web_search" }],
           system: buildPrompt(settings),
           messages: [{ role: "user", content: `Today is ${new Date().toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}. Search for what's trending right now in AI, working dad content, job displacement, and everyday productivity. Then generate my morning content brief as a JSON object only.` }],
         }),
