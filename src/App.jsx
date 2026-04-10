@@ -114,7 +114,7 @@ export default function MorningBrief() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           model: "claude-haiku-4-5-20251001",
-          max_tokens: 800,
+          max_tokens: 2000,
           system: buildPrompt(settings),
           messages: [{ role: "user", content: `Today is ${new Date().toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}. Search for what's trending right now in AI, working dad content, job displacement, and everyday productivity. Then generate my morning content brief as a JSON object only.` }],
         }),
